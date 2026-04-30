@@ -461,7 +461,7 @@ export default function Home() {
               <div className="flex items-center gap-4 text-charcoal-800">
                 <a href="https://www.instagram.com/teal.trails/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:opacity-80 transition-opacity group w-full">
                   <div className="w-12 h-12 bg-cream-200 rounded-full flex items-center justify-center shrink-0 group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-pink-500 group-hover:to-purple-500 transition-all shadow-sm group-hover:shadow-md">
-                    <Instagram className="text-teal-600 group-hover:text-white transition-colors" size={24} />
+                    <Instagram className="text-teal-600 group-hover:text-white transition-colors" width={24} height={24} />
                   </div>
                   <div>
                     <h4 className="font-bold group-hover:text-pink-600 transition-colors">Follow our Journey</h4>
