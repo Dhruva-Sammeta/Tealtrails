@@ -29,7 +29,7 @@ export default function Navbar() {
               <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-teal-600/50 bg-white/80 shadow-sm float-soft transition-transform duration-300 group-hover:scale-105">
                  <Image src="/logo.jpg" fill sizes="48px" alt="Teal Trails Logo" className="object-contain p-1" />
               </div>
-              <span className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-teal-800 tracking-tight hidden sm:block">
+              <span className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-teal-800 tracking-tight">
                 TEAL TRAILS
               </span>
             </Link>

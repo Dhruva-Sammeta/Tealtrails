@@ -165,10 +165,10 @@ export default function Home() {
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 mb-14">
             <div className="max-w-3xl order-1">
-              <motion.span variants={fadeUp} className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">Why It Matters</motion.span>
-              <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif text-charcoal-900 leading-tight">Small today, built to grow responsibly.</motion.h2>
+              <motion.span id="mission" variants={fadeUp} className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">About Us</motion.span>
+              <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif text-charcoal-900 leading-tight">A mission to make prevention accessible.</motion.h2>
               <motion.p variants={fadeUp} className="mt-5 text-charcoal-800 text-lg leading-relaxed">
-                Teal Trails exists because cervical cancer becomes easier to ignore when the facts are not explained clearly, respectfully, and early. We are here to make that conversation visible, practical, and scalable.
+                Teal Trails is a student-led initiative born out of a simple realization: cervical cancer is highly preventable, yet thousands of lives are lost because facts aren't explained clearly, respectfully, and early. We are here to provide that crucial context, making the conversation visible, practical, and scalable across schools and communities.
               </motion.p>
             </div>
             <motion.div variants={fadeUp} className="order-2 shrink-0 self-center md:self-auto">
