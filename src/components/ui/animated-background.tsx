@@ -19,8 +19,8 @@ export const AuroraBackground = ({
           className="absolute inset-0 bg-cover bg-center opacity-0 animate-background-fade"
           style={{ backgroundImage: `url('${imageSrc}')` }}
         ></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-cream-100/70 via-cream-100/40 to-cream-100/85 opacity-0 animate-background-fade" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.55),_transparent_55%)] mix-blend-screen opacity-0 animate-background-fade" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cream-100/90 via-cream-100/80 to-cream-100/95 opacity-0 animate-background-fade" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.7),_transparent_60%)] mix-blend-screen opacity-0 animate-background-fade" />
       </div>
 
       <div className="relative z-10 w-full h-full">{children}</div>

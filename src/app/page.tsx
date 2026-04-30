@@ -358,9 +358,9 @@ export default function Home() {
       {/* 6. GALLERY */}
       <section id="gallery" className="w-full py-28 sm:py-36 px-4 sm:px-6 lg:px-8 bg-cream-200">
          <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-              <motion.div variants={fadeUp} className="max-w-2xl">
-                <span className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">Field Work</span>
+            <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left">
+              <motion.div variants={fadeUp} className="max-w-2xl mx-auto md:mx-0">
+                <span className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">Field Work Gallery</span>
                 <h2 className="text-4xl md:text-5xl font-serif text-charcoal-900">Hope In Action</h2>
               </motion.div>
             </div>
