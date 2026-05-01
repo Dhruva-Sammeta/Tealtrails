@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-cream-100 text-charcoal-900 border-t-4 border-teal-600/80">
       <div className="absolute inset-0 opacity-70 bg-[radial-gradient(circle_at_top_left,_rgba(10,143,150,0.10),_transparent_38%),radial-gradient(circle_at_bottom_right,_rgba(205,92,92,0.08),_transparent_30%)]" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_0.8fr_1fr] gap-12 lg:gap-16">
           <div className="space-y-6">
             <Link href="/" className="inline-flex items-center gap-4 group">
@@ -72,7 +72,7 @@ export default function Footer() {
           <p> {new Date().getFullYear()} Teal Trails. All rights reserved.</p>
           <p>Building cervical cancer awareness, one growing partnership at a time.</p>
         </div>
-        <div className="mt-8 pt-4 pb-2 text-center">
+        <div className="mt-20 pt-8 pb-2 text-center border-t border-transparent">
           <a
             href="https://www.linkedin.com/in/dhruva-sammeta-19198a291/"
             className="text-[0.6rem] uppercase tracking-[0.22em] text-charcoal-500/70 hover:text-teal-600 transition-colors duration-300"
