@@ -73,9 +73,16 @@ export default function Home() {
             A student-led cervical cancer awareness initiative
           </motion.div>
           
-          <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl font-serif text-charcoal-900 leading-[1.1] tracking-tight max-w-4xl mx-auto drop-shadow-[0_6px_22px_rgba(255,255,255,0.65)]">
-            Most Indian women learn about cervical cancer after a diagnosis. <span className="text-rose-500 italic">We change that.</span>
-          </motion.h1>
+          <motion.div variants={fadeUp} className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 w-full max-w-5xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-charcoal-900 leading-[1.1] tracking-tight max-w-3xl drop-shadow-[0_6px_22px_rgba(255,255,255,0.65)] lg:text-left">
+              Most Indian women learn about cervical cancer after a diagnosis. <span className="text-rose-500 italic">We change that.</span>
+            </h1>
+            
+            <div className="relative w-36 h-36 sm:w-44 sm:h-44 shrink-0 bg-white/70 backdrop-blur-xl border border-white/80 rounded-[2rem] shadow-[0_20px_40px_rgba(31,41,55,0.12)] p-2 hover:scale-105 transition-transform duration-500">
+              <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/10 to-rose-500/10 rounded-[2rem] pointer-events-none"></div>
+              <Image src="/logo.jpg" alt="Teal Trails Logo" fill sizes="(min-width: 640px) 176px, 144px" className="object-contain p-4" />
+            </div>
+          </motion.div>
           
           <motion.p variants={fadeUp} className="text-base sm:text-lg md:text-xl text-charcoal-800 max-w-3xl mx-auto leading-relaxed font-medium mt-6 sm:mt-8 drop-shadow-[0_4px_12px_rgba(255,255,255,0.55)]">
             Teal Trails is a student-led initiative born from real conversations - with girls in orphanages, women in rural mandals, and college students in Hyderabad who had never once heard the word "cervix." India loses over 77,000 women to cervical cancer every year - not because medicine failed them, but because silence did. We break that silence in classrooms, communities, and at doorsteps.
