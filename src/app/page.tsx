@@ -4,29 +4,8 @@ import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, HeartHandshake, MapPin, Mail, MessageSquare, Play, X } from "lucide-react";
-import { InstagramLogoIcon as Instagram } from "@radix-ui/react-icons";
-import { motion, AnimatePresence, animate } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { AuroraBackground } from "@/components/ui/animated-background";
-
-function AnimatedCounter({ value, hasAnimatedCounts }: { value: number; hasAnimatedCounts: boolean }) {
-  const nodeRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (hasAnimatedCounts && nodeRef.current) {
-      const controls = animate(0, value, {
-        duration: 0.9,
-        onUpdate(v) {
-          if (nodeRef.current) {
-            nodeRef.current.textContent = Math.round(v).toString();
-          }
-        },
-      });
-      return () => controls.stop();
-    }
-  }, [value, hasAnimatedCounts]);
-
-  return <span ref={nodeRef}>0</span>;
-}
 
 export default function Home() {
   const staggerContainer = {
@@ -47,23 +26,9 @@ export default function Home() {
     show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" as const } }
   };
 
-  const campaignStats = [
-    { value: 100, label: "patients served", suffix: "+" },
-    { value: 20, label: "kilometers reached", suffix: "+" }
-  ];
-
-  const [hasAnimatedCounts, setHasAnimatedCounts] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  
-  const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", message: "" });
-  const handleContactSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`Contact from ${formData.firstName} ${formData.lastName}`);
-    const body = encodeURIComponent(`Name: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    window.location.href = `mailto:vaibhavi_babu@oakridge.in?subject=${subject}&body=${body}`;
-  };
 
   const galleryImages = [
     { src: "/content/gallery/09C39AE3-F047-4F1A-A5A0-B92644FD15A1.JPG", alt: "Teal Trails fieldwork photo 1" },
@@ -89,29 +54,7 @@ export default function Home() {
     }
   ];
 
-  const timeline = [
-    { year: "2024", title: "Inception", desc: "Teal Trails began to close the gap in cervical cancer awareness among young people." },
-    { year: "2025", title: "First Campaign", desc: "Launched our first school campaign focused on cervical cancer, HPV, and early screening awareness." },
-    { year: "2026", title: "Building Forward", desc: "Expanding the work with more schools, clearer prevention messages, and stronger community reach." }
-  ];
 
-  const purposeCards = [
-    {
-      eyebrow: "Why it matters",
-      title: "Breaking the traditional silence.",
-      desc: "When women's health is shrouded in cultural taboo, screening gets delayed. We dismantle the stigma, replacing shame with clear, empowering conversations."
-    },
-    {
-      eyebrow: "How we grow",
-      title: "School conversations make prevention feel real.",
-      desc: "Teal Trails is intentionally early-stage and built to scale through school sessions, clinics, and local partnerships."
-    },
-    {
-      eyebrow: "What we protect",
-      title: "Early detection, access, and trust.",
-      desc: "Every workshop and camp is built to leave people with one clear next step."
-    }
-  ];
 
   return (
     <main className="min-h-screen flex flex-col overflow-hidden bg-cream-100">
@@ -126,28 +69,22 @@ export default function Home() {
             A student-led cervical cancer awareness initiative
           </motion.div>
           
-          <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-charcoal-900 leading-[1.03] tracking-tight max-w-4xl mx-auto [text-shadow:_0_6px_22px_rgba(255,255,255,0.65)]">
-            Healing through <span className="text-teal-600 italic">awareness</span>, <br className="hidden md:block"/> 
-            empowering through <span className="text-rose-500 underline decoration-4 underline-offset-4 decoration-rose-300">action</span>.
+          <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl font-serif text-charcoal-900 leading-[1.1] tracking-tight max-w-4xl mx-auto drop-shadow-[0_6px_22px_rgba(255,255,255,0.65)]">
+            Most Indian women learn about cervical cancer after a diagnosis. <span className="text-rose-500 italic">We change that.</span>
           </motion.h1>
           
-          <motion.p variants={fadeUp} className="text-base sm:text-lg md:text-xl text-charcoal-800 max-w-2xl mx-auto leading-relaxed font-medium mt-4 sm:mt-6 [text-shadow:_0_4px_12px_rgba(255,255,255,0.55)]">
-            Challenging traditional taboos to bring cervical cancer awareness, HPV education, and prevention support to the people who need it most.
-          </motion.p>
-
-          <motion.p variants={fadeUp} className="text-[0.7rem] sm:text-sm md:text-base uppercase tracking-[0.22em] text-black-200/90 font-semibold max-w-3xl leading-6 sm:leading-7 [text-shadow:_0_3px_10px_rgba(255,255,255,0.55)]">
-            Dismantling cultural stigmas and breaking the silence around cervical health in India through education and community outreach.
+          <motion.p variants={fadeUp} className="text-base sm:text-lg md:text-xl text-charcoal-800 max-w-3xl mx-auto leading-relaxed font-medium mt-6 sm:mt-8 drop-shadow-[0_4px_12px_rgba(255,255,255,0.55)]">
+            Teal Trails is a student-led initiative born from real conversations — with girls in orphanages, women in rural mandals, and college students in Hyderabad who had never once heard the word "cervix." India loses over 77,000 women to cervical cancer every year — not because medicine failed them, but because silence did. We break that silence in classrooms, communities, and at doorsteps.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-6 sm:pt-8 w-full sm:w-auto">
-            <Link href="#campaign-one" className="flex items-center justify-center gap-2 bg-rose-500 hover:bg-rose-600 text-white px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold shadow-[0_18px_40px_rgba(205,92,92,0.24)] transition-all hover:-translate-y-1 w-full sm:w-auto text-sm sm:text-base">
+            <Link href="#camp-pragati" className="flex items-center justify-center gap-2 bg-rose-500 hover:bg-rose-600 text-white px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold shadow-[0_18px_40px_rgba(205,92,92,0.24)] transition-all hover:-translate-y-1 w-full sm:w-auto text-sm sm:text-base">
               <HeartHandshake className="w-5 h-5" />
-              See Campaign One
+              See Camp Pragati
             </Link>
-            <a href="https://www.instagram.com/teal.trails/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-white/60 backdrop-blur border-2 border-teal-600/20 hover:border-pink-500 text-teal-800 hover:text-pink-600 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold shadow-[0_14px_30px_rgba(31,41,55,0.08)] transition-all hover:-translate-y-1 w-full sm:w-auto text-sm sm:text-base group">
-              <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              Follow Our Journey
-            </a>
+            <Link href="#mission" className="flex items-center justify-center gap-2 bg-white/60 backdrop-blur border-2 border-teal-600/20 hover:border-teal-600 text-teal-800 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold shadow-[0_14px_30px_rgba(31,41,55,0.08)] transition-all hover:-translate-y-1 w-full sm:w-auto text-sm sm:text-base">
+              Learn More
+            </Link>
           </motion.div>
         </motion.div>
       </AuroraBackground>
@@ -155,37 +92,41 @@ export default function Home() {
       {/* 2. WHY IT MATTERS */}
       <section className="w-full pt-32 sm:pt-36 pb-28 sm:pb-36 px-4 sm:px-6 lg:px-8 bg-white relative">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 mb-14">
-            <div className="max-w-3xl order-1">
-              <motion.span id="mission" variants={fadeUp} className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">About Us</motion.span>
-              <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif text-charcoal-900 leading-tight">A mission to make prevention accessible.</motion.h2>
-              <motion.p variants={fadeUp} className="mt-5 text-charcoal-800 text-lg leading-relaxed">
-                Teal Trails is a student-led initiative born out of a stark reality: in India, traditional stigmas and cultural silence around women's health cost lives. Cervical cancer is highly preventable, yet thousands are lost because facts are hidden behind taboos. We are here to break those barriers, making conversations about the cervix visible, respectful, and culturally accessible.
-              </motion.p>
-            </div>
-            <motion.div variants={fadeUp} className="order-2 shrink-0 self-center md:self-auto">
-              <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-[32px] overflow-hidden bg-cream-100 shadow-md border border-cream-900 flex items-center justify-center p-4 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner">
-                  <Image src="/logo.jpg" alt="Teal Trails Logo" fill sizes="(max-width: 768px) 160px, 192px" className="object-cover" />
-                </div>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <motion.div
+              variants={imageLift}
+              whileHover={{ y: -8 }}
+              className="rounded-2xl border border-cream-900 bg-cream-100 p-8 md:p-10 shadow-md hover:shadow-xl transition-all duration-300 cut-paper"
+            >
+              <h3 className="text-sm uppercase tracking-[0.3em] text-teal-700 font-bold mb-4">Why It Matters</h3>
+              <p className="text-charcoal-800 leading-relaxed text-lg">We met girls who had no language for their own reproductive health. Not because they weren't curious, but because every adult around them had been taught the same silence. This isn't only a rural problem. Across privileged households and urban schools alike, stigma delays screening and turns a preventable disease into a death sentence. We replace that shame with conversations that save lives.</p>
+            </motion.div>
+
+            <motion.div
+              variants={imageLift}
+              whileHover={{ y: -8 }}
+              className="rounded-2xl border border-cream-900 bg-cream-100 p-8 md:p-10 shadow-md hover:shadow-xl transition-all duration-300 cut-paper"
+            >
+              <h3 className="text-sm uppercase tracking-[0.3em] text-teal-700 font-bold mb-4">How We Grow</h3>
+              <p className="text-charcoal-800 leading-relaxed text-lg">We run awareness sessions in schools, colleges, and clinics — reaching 100+ adolescents before HPV exposure peaks and before the healthcare system loses them to avoidance. Our sessions cover HPV transmission, the cervical cancer link, vaccine safety, and what a Pap smear involves. We partner with local NGOs and Asha workers to make the impact last beyond a single visit.</p>
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {purposeCards.map((card, i) => (
-              <motion.div
-                variants={imageLift}
-                whileHover={{ y: -8 }}
-                key={i}
-                className="rounded-2xl border border-cream-900 bg-cream-100 p-8 shadow-md hover:shadow-xl transition-all duration-300 cut-paper"
-              >
-                <p className="text-xs uppercase tracking-[0.3em] text-teal-700 font-bold">{card.eyebrow}</p>
-                <h3 className="mt-4 text-2xl font-serif text-charcoal-900 leading-tight">{card.title}</h3>
-                <p className="mt-4 text-charcoal-800 leading-relaxed">{card.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            variants={imageLift}
+            whileHover={{ y: -8 }}
+            className="rounded-2xl border border-teal-600/30 bg-teal-800 text-cream-100 p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 cut-paper relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 p-8 opacity-10">
+              <HeartHandshake className="w-64 h-64" />
+            </div>
+            <div className="relative z-10">
+              <h3 className="text-sm uppercase tracking-[0.3em] text-teal-300 font-bold mb-4">What We Protect</h3>
+              <p className="text-teal-50 leading-relaxed text-xl md:text-2xl font-serif max-w-4xl">
+                Teal Trails is pioneering mobile clinics in youth-led public health — bringing certified medical professionals and care directly to doorsteps. Funded through CSR partnerships and run primarily in villages, each mobile unit provides not only cervical cancer awareness, but also anaemia care, antenatal care (ANC) for pregnant women, diabetes care, hypertension treatment, premature menopause treatment and other patient-specific consultations for whatever concerns come at our door. We eliminate the need for waiting rooms and just provide comprehensive care where the system hasn't reached yet.
+              </p>
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 
@@ -204,20 +145,20 @@ export default function Home() {
               Overcoming traditional barriers to care.
             </h2>
             <p className="text-charcoal-800 text-lg leading-relaxed">
-              We are a youth-driven initiative committed to tearing down the deeply rooted cultural taboos surrounding the cervix and women's health in India. For too long, modesty and misinformation have acted as barriers to life-saving care.
+              Teal Trails doesn't target one kind of woman– it reaches all of them. From high school girls and postgraduate researchers to women farm labourers working in fields and mothers in villages who've never seen a doctor. Teal Trails understands that a degree is not a guarantee of awareness — we've sat in rooms full of educated women who had never once heard of HPV. Cervical cancer doesn't discriminate by education or income, and neither does our work.
             </p>
             <p className="text-charcoal-800 text-lg leading-relaxed">
-              By fostering open dialogue and normalizing conversations about HPV and screening, we are confronting these stigmas head-on—lighting the trail toward earlier action, bodily autonomy, and better care.
+              Every session is shaped around who's in the room. Their language, their concerns, their reality. A postgraduate seminar looks different from a session under a tent in a village. What doesn't change is the core message: this cancer is preventable, this information is yours, and you deserve access to both.
             </p>
             <div className="pt-4">
-              <Link href="#campaign-one" className="inline-flex items-center justify-center gap-2 bg-charcoal-900 hover:bg-charcoal-800 text-cream-100 px-8 py-3.5 rounded-full font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
-                See Campaign One <ArrowRight className="w-4 h-4" />
+              <Link href="#camp-pragati" className="inline-flex items-center justify-center gap-2 bg-charcoal-900 hover:bg-charcoal-800 text-cream-100 px-8 py-3.5 rounded-full font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                See Campaign Pragati <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </motion.div>
 
           <motion.div variants={fadeUp} whileHover={{ y: -6 }} className="relative max-w-md mx-auto w-full">
-            <div className="absolute -inset-6 rounded-[32px] shadow-[0_0_80px_20px_rgba(10,143,150,0.15)] pointer-events-none"></div>
+            <div className="absolute -inset-6 bg-teal-600/20 blur-2xl rounded-[32px]"></div>
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[28px] border border-cream-900/60 shadow-[0_20px_60px_rgba(31,41,55,0.18)]">
               <Image
                 src="/content/poster.png"
@@ -229,70 +170,81 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-cream-100/75 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/70 bg-white/70 backdrop-blur-md p-4">
                 <p className="text-xs uppercase tracking-[0.3em] text-teal-700 font-bold">Featured Poster</p>
-                <p className="mt-2 text-charcoal-900 font-serif text-xl">Awareness begins with a visible message.</p>
+                <p className="mt-2 text-charcoal-900 font-serif text-xl">Putting women's health into local languages and onto local walls</p>
               </div>
             </div>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* 4. CAMPAIGN ONE */}
-      <section id="campaign-one" className="w-full py-28 sm:py-36 px-4 sm:px-6 lg:px-8 bg-white relative">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} onViewportEnter={() => setHasAnimatedCounts(true)} className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 xl:gap-16 items-center">
-          <motion.div variants={fadeUp} className="w-full lg:w-5/12 space-y-8">
+      {/* 4. CAMP PRAGATI */}
+      <section id="camp-pragati" className="w-full py-28 sm:py-36 px-4 sm:px-6 lg:px-8 bg-white relative">
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 xl:gap-16 items-start">
+          <motion.div variants={fadeUp} className="w-full lg:w-1/2 space-y-8">
             <div className="flex items-center gap-4 opacity-80">
               <div className="h-px w-12 bg-charcoal-800"></div>
-              <span className="uppercase tracking-widest text-sm font-bold text-charcoal-800">Campaign One</span>
+              <span className="uppercase tracking-widest text-sm font-bold text-charcoal-800">Camp Pragati</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-serif text-charcoal-900 leading-tight">
-              A focused outreach campaign built around cervical cancer awareness.
+              Camp Pragati — Progress, taken to the doorstep.
             </h2>
-            <p className="text-charcoal-800 text-lg leading-relaxed">
-              Campaign One actively confronts the stigma of women's reproductive health by bringing candid, culturally sensitive cervical cancer education directly into schools.
-            </p>
-            <p className="text-charcoal-800 text-lg leading-relaxed">
-              It is designed to un-shame the conversation, helping students and communities move past traditional hesitation and toward preventative action without the intimidation of medical jargon.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {campaignStats.map((stat, index) => (
-                <div key={stat.label} className="rounded-2xl bg-cream-100 border border-cream-900 p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  <div className="text-3xl font-serif text-teal-800">
-                    <AnimatedCounter value={stat.value} hasAnimatedCounts={hasAnimatedCounts} />{stat.suffix}
-                  </div>
-                  <p className="mt-2 text-sm text-charcoal-800 leading-relaxed">{stat.label}</p>
-                </div>
-              ))}
+            <div className="space-y-6 text-charcoal-800 text-lg leading-relaxed">
+              <p>
+                Pragati means progress in Hindi — and that's exactly what this camp was built to deliver. In Early 2025, Teal Trails drove a CSR-funded mobile health unit into Thunki Kalsa, a village in rural Hyderabad, where chronic illnesses go undiagnosed, reproductive health remains unspoken, and reliable medical care is far out of reach for most families.
+              </p>
+              <p>
+                Our team addressed hypertension, diabetes, anaemia, premature menopause, and antenatal care alongside cervical cancer awareness — every woman who received a consultation also walked away with cervical cancer awareness materials and Teal Trails pamphlets. High school students — girls and boys — attended a doctor-led seminar on general health practices and preventive measures, many hearing about cervical cancer for the very first time.
+              </p>
+              <p>
+                Pragati was a reminder that progress isn't always built in hospitals and policy rooms. It's built in the spaces the system forgot to reach, and the willingness to learn and grow.
+              </p>
             </div>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="w-full lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-6 self-stretch">
-            <div className="bg-cream-100 rounded-[28px] border border-cream-900 p-8 shadow-lg hover:shadow-xl transition-all duration-300 cut-paper h-full flex flex-col justify-center">
-              <h3 className="text-2xl font-serif text-charcoal-900">What this campaign covers</h3>
-              <div className="mt-6 space-y-4">
-                {[
-                  "Why cervical cancer awareness matters early",
-                  "How HPV, screening, and prevention fit together",
-                  "Where people can go for support and next steps"
-                ].map((item) => (
-                  <div key={item} className="flex items-start gap-3 rounded-2xl bg-white p-4 border border-cream-900/60">
-                    <div className="mt-1 h-2.5 w-2.5 rounded-full bg-rose-500 shrink-0"></div>
-                    <p className="text-charcoal-800 leading-relaxed">{item}</p>
-                  </div>
-                ))}
-              </div>
+          <motion.div variants={fadeUp} className="w-full lg:w-1/2 space-y-8">
+            <div className="bg-cream-100 rounded-[28px] border border-cream-900 p-8 shadow-lg hover:shadow-xl transition-all duration-300 cut-paper">
+              <h3 className="text-2xl font-serif text-charcoal-900 mb-6">Camp Pragati Impact</h3>
+              <ul className="space-y-4 text-charcoal-800">
+                <li className="flex items-start gap-3">
+                  <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
+                  <span><strong>110 patients served</strong> across 2 villages in a 7-hour window</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
+                  <span><strong>82% women</strong> — each receiving cervical cancer awareness materials and Teal Trails pamphlets alongside their medical consultation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
+                  <span><strong>50 high school students</strong> — girls and boys — attended a doctor-led medical seminar covering general health practices, cervical cancer awareness, and crucial preventive measures</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
+                  <span><strong>20 km covered</strong> to reach communities with no proximate healthcare access</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
+                  <span><strong>77% returning patients</strong> — indicating trust built from Teal Trails presence</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
+                  <span><strong>Hypertension, diabetes, anemia, and premature menopause</strong> emerged as the dominant conditions — chronic illnesses that go largely undiagnosed in rural women</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
+                  <span>Patients ranged from <strong>12 to 60+ years</strong>, cutting across generations in the same sitting</span>
+                </li>
+              </ul>
             </div>
 
-            <div className="bg-cream-100 rounded-[28px] border border-cream-900 p-8 shadow-lg hover:shadow-xl transition-all duration-300 cut-paper h-full flex flex-col justify-center">
+            <div className="bg-cream-100 rounded-[28px] border border-cream-900 p-8 shadow-lg hover:shadow-xl transition-all duration-300 cut-paper">
               <h3 className="text-2xl font-serif text-charcoal-900 mb-6">Our Impact in Motion</h3>
-              <div 
-                className="relative rounded-xl overflow-hidden border border-cream-900/60 shadow-md bg-charcoal-900 w-full flex-grow flex items-center justify-center group aspect-video min-h-[200px]"
-              >
+              <div className="relative rounded-xl overflow-hidden border border-cream-900/60 shadow-md bg-charcoal-900 w-full flex items-center justify-center group aspect-video">
                 <video 
                   ref={videoRef}
                   src="/content/Campaign_one.mp4"
                   className="absolute inset-0 w-full h-full object-cover"
                   controls
-                  preload="none"
+                  preload="metadata"
                   onPlay={() => setIsVideoPlaying(true)}
                   onPause={() => setIsVideoPlaying(false)}
                   playsInline
@@ -318,42 +270,23 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 5. TIMELINE SECTION */}
-      <section className="w-full pt-28 sm:pt-36 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 bg-cream-100 relative">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.span variants={fadeUp} className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">Our Journey</motion.span>
-            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif text-charcoal-900">How Far We've Come</motion.h2>
-          </div>
-
-          <div className="relative space-y-12 before:absolute before:inset-0 before:ml-5 md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-teal-600/20">
-            {timeline.map((item, i) => (
-              <motion.div variants={fadeUp} key={i} className={`relative z-10 flex flex-col md:flex-row gap-8 items-center ${i % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
-                <div className="w-full md:w-1/2 flex justify-start pl-12 md:pl-0 md:justify-center">
-                  <div className="bg-teal-800 text-teal-100 px-6 py-3 rounded-full font-bold text-xl shadow-lg border border-teal-600 font-serif w-max">
-                    {item.year}
-                  </div>
-                </div>
-                <div className="w-full md:w-1/2 pl-12 md:pl-0">
-                  <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-cream-900 relative cut-paper">
-                    <div className={`absolute w-4 h-4 bg-rose-500 rounded-full top-1/2 -translate-y-1/2 hidden md:block ${i % 2 === 0 ? '-left-4' : '-right-4'}`}></div>
-                    <div className="absolute w-4 h-4 bg-rose-500 rounded-full top-1/2 -translate-y-1/2 -left-[40px] md:hidden"></div>
-                    <h3 className="text-2xl font-serif text-teal-800 mb-3">{item.title}</h3>
-                    <p className="text-charcoal-800 leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      {/* 5. PRESS SECTION */}
+      <section className="w-full py-28 sm:py-36 px-4 sm:px-6 lg:px-8 bg-cream-100 relative border-t border-cream-900">
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="max-w-4xl mx-auto text-center">
+          <motion.span variants={fadeUp} className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">Media</motion.span>
+          <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif text-charcoal-900 mb-6">Press & Media</motion.h2>
+          <motion.p variants={fadeUp} className="text-charcoal-800 text-lg leading-relaxed">
+            Updates coming soon.
+          </motion.p>
         </motion.div>
       </section>
 
       {/* 6. GALLERY */}
-      <section id="gallery" className="w-full pt-16 sm:pt-20 pb-28 sm:pb-36 px-4 sm:px-6 lg:px-8 bg-cream-200">
+      <section id="gallery" className="w-full py-28 sm:py-36 px-4 sm:px-6 lg:px-8 bg-cream-200">
          <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 text-center md:text-left">
-              <motion.div variants={fadeUp} className="max-w-2xl mx-auto md:mx-0">
-                <span className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">Field Work Gallery</span>
+            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+              <motion.div variants={fadeUp} className="max-w-2xl">
+                <span className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">Field Work</span>
                 <h2 className="text-4xl md:text-5xl font-serif text-charcoal-900">Hope In Action</h2>
               </motion.div>
             </div>
@@ -367,7 +300,8 @@ export default function Home() {
                   onClick={() => setSelectedImage(image.src)}
                   className="relative aspect-[4/3] rounded-xl overflow-hidden group shadow-md hover:shadow-2xl transition-shadow duration-500 bg-cream-300 cursor-pointer"
                 >
-                   <Image src={image.src} alt={image.alt} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                   {/* eslint-disable-next-line @next/next/no-img-element */}
+                   <img src={image.src} alt={image.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal-900/12 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </motion.div>
               ))}
@@ -395,12 +329,10 @@ export default function Home() {
                     >
                       <X size={32} />
                     </button>
-                    <Image 
+                    <img 
                       src={selectedImage} 
                       alt="Gallery zoom" 
-                      fill
-                      sizes="100vw"
-                      className="object-contain rounded-lg shadow-2xl"
+                      className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
                     />
                   </motion.div>
                 </motion.div>
@@ -422,10 +354,10 @@ export default function Home() {
           <div className="grid grid-cols-1 place-items-center">
             {founders.map((founder, i) => (
               <motion.div variants={fadeUp} key={i} className="relative w-full max-w-md">
-                <div className="absolute -inset-6 bg-white/15 blur-2xl rounded-[32px] transform-gpu pointer-events-none"></div>
+                <div className="absolute -inset-6 rounded-[32px] bg-white/10 blur-2xl"></div>
                 <motion.div
                   whileHover={{ y: -8 }}
-                  className="relative rounded-[28px] border border-white/30 bg-white/10 backdrop-blur-lg p-8 text-center shadow-[0_25px_60px_rgba(3,36,39,0.45)]"
+                  className="relative rounded-[28px] border border-white/30 bg-white/10 backdrop-blur-2xl p-8 text-center shadow-[0_25px_60px_rgba(3,36,39,0.45)]"
                 >
                   <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-white/60 shadow-[0_12px_30px_rgba(0,0,0,0.25)]">
                     <Image src={founder.image} alt={founder.name} fill sizes="160px" className="object-cover" />
@@ -453,51 +385,47 @@ export default function Home() {
             </div>
             <div className="space-y-6 pt-4">
               <div className="flex items-center gap-4 text-charcoal-800">
-                <a href="https://www.instagram.com/teal.trails/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 hover:opacity-80 transition-opacity group w-full">
-                  <div className="w-12 h-12 bg-cream-200 rounded-full flex items-center justify-center shrink-0 group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-pink-500 group-hover:to-purple-500 transition-all shadow-sm group-hover:shadow-md">
-                    <Instagram className="text-teal-600 group-hover:text-white transition-colors" width={24} height={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold group-hover:text-pink-600 transition-colors">Follow our Journey</h4>
-                    <p className="text-charcoal-800">@teal.trails</p>
-                  </div>
-                </a>
+                <div className="w-12 h-12 bg-cream-200 rounded-full flex items-center justify-center shrink-0">
+                  <MapPin className="text-teal-600" size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold">Our Headquarters</h4>
+                  <p className="text-charcoal-800">Placeholder Address, Hyderabad, India</p>
+                </div>
               </div>
               <div className="flex items-center gap-4 text-charcoal-800">
-                <a href="mailto:vaibhavi_babu@oakridge.in" className="flex items-center gap-4 hover:opacity-80 transition-opacity group w-full">
-                  <div className="w-12 h-12 bg-cream-200 rounded-full flex items-center justify-center shrink-0 group-hover:bg-teal-600 transition-colors shadow-sm group-hover:shadow-md">
-                    <Mail className="text-teal-600 group-hover:text-white transition-colors" size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold group-hover:text-teal-700 transition-colors">Email Us</h4>
-                    <p className="text-charcoal-800">vaibhavi_babu@oakridge.in</p>
-                  </div>
-                </a>
+                <div className="w-12 h-12 bg-cream-200 rounded-full flex items-center justify-center shrink-0">
+                  <Mail className="text-teal-600" size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold">Email Us</h4>
+                  <p className="text-charcoal-800">hello@tealtrails.org</p>
+                </div>
               </div>
             </div>
           </div>
 
           <motion.div variants={fadeUp} className="bg-cream-100 p-8 md:p-10 rounded-2xl border border-cream-900 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cut-paper">
-            <form className="space-y-6" onSubmit={handleContactSubmit}>
+            <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-charcoal-800">First Name</label>
-                  <input required type="text" value={formData.firstName} onChange={e => setFormData({...formData, firstName: e.target.value})} className="w-full px-4 py-3 rounded-lg border border-cream-900 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white transition-shadow" placeholder="Jane" />
+                  <input type="text" className="w-full px-4 py-3 rounded-lg border border-cream-900 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white" placeholder="Jane" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-charcoal-800">Last Name</label>
-                  <input required type="text" value={formData.lastName} onChange={e => setFormData({...formData, lastName: e.target.value})} className="w-full px-4 py-3 rounded-lg border border-cream-900 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white transition-shadow" placeholder="Doe" />
+                  <input type="text" className="w-full px-4 py-3 rounded-lg border border-cream-900 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white" placeholder="Doe" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-charcoal-800">Email Address</label>
-                <input required type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 rounded-lg border border-cream-900 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white transition-shadow" placeholder="jane@example.com" />
+                <input type="email" className="w-full px-4 py-3 rounded-lg border border-cream-900 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white" placeholder="jane@example.com" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-charcoal-800">Message</label>
-                <textarea required rows={4} value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} className="w-full px-4 py-3 rounded-lg border border-cream-900 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white transition-shadow" placeholder="How can we help you?"></textarea>
+                <textarea rows={4} className="w-full px-4 py-3 rounded-lg border border-cream-900 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white" placeholder="How can we help you?"></textarea>
               </div>
-              <button type="submit" className="w-full bg-teal-800 hover:bg-teal-900 text-white font-bold py-4 rounded-full transition-all flex items-center justify-center gap-2 hover:shadow-lg hover:-translate-y-0.5">
+              <button type="button" className="w-full bg-teal-800 hover:bg-teal-900 text-white font-bold py-4 rounded-full transition-all flex items-center justify-center gap-2">
                 <MessageSquare size={18} /> Send Message
               </button>
             </form>
