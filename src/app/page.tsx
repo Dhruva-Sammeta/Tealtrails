@@ -115,7 +115,7 @@ export default function Home() {
           <motion.div
             variants={imageLift}
             whileHover={{ y: -8 }}
-            className="rounded-2xl border border-teal-600/30 bg-teal-800 text-cream-100 p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 cut-paper relative overflow-hidden"
+            className="rounded-2xl border border-teal-600/30 bg-teal-800 text-cream-100 p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 p-8 opacity-10">
               <HeartHandshake className="w-64 h-64" />
@@ -201,42 +201,42 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="w-full lg:w-1/2 space-y-8">
-            <div className="bg-cream-100 rounded-[28px] border border-cream-900 p-8 shadow-lg hover:shadow-xl transition-all duration-300 cut-paper">
+          <div className="w-full lg:w-1/2 space-y-8">
+            <motion.div variants={imageLift} className="bg-cream-100 rounded-[28px] border border-cream-900 p-8 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300 cut-paper">
               <h3 className="text-2xl font-serif text-charcoal-900 mb-6">Camp Pragati Impact</h3>
-              <ul className="space-y-4 text-charcoal-800">
-                <li className="flex items-start gap-3">
+              <ul className="space-y-6 text-charcoal-800">
+                <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
                   <span><strong>110 patients served</strong> across 2 villages in a 7-hour window</span>
-                </li>
-                <li className="flex items-start gap-3">
+                </motion.li>
+                <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
                   <span><strong>82% women</strong> — each receiving cervical cancer awareness materials and Teal Trails pamphlets alongside their medical consultation</span>
-                </li>
-                <li className="flex items-start gap-3">
+                </motion.li>
+                <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
                   <span><strong>50 high school students</strong> — girls and boys — attended a doctor-led medical seminar covering general health practices, cervical cancer awareness, and crucial preventive measures</span>
-                </li>
-                <li className="flex items-start gap-3">
+                </motion.li>
+                <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
                   <span><strong>20 km covered</strong> to reach communities with no proximate healthcare access</span>
-                </li>
-                <li className="flex items-start gap-3">
+                </motion.li>
+                <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
                   <span><strong>77% returning patients</strong> — indicating trust built from Teal Trails presence</span>
-                </li>
-                <li className="flex items-start gap-3">
+                </motion.li>
+                <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
                   <span><strong>Hypertension, diabetes, anemia, and premature menopause</strong> emerged as the dominant conditions — chronic illnesses that go largely undiagnosed in rural women</span>
-                </li>
-                <li className="flex items-start gap-3">
+                </motion.li>
+                <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
                   <span>Patients ranged from <strong>12 to 60+ years</strong>, cutting across generations in the same sitting</span>
-                </li>
+                </motion.li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="bg-cream-100 rounded-[28px] border border-cream-900 p-8 shadow-lg hover:shadow-xl transition-all duration-300 cut-paper">
+            <motion.div variants={imageLift} className="bg-cream-100 rounded-[28px] border border-cream-900 p-8 md:p-10 shadow-lg hover:shadow-xl transition-all duration-300 cut-paper">
               <h3 className="text-2xl font-serif text-charcoal-900 mb-6">Our Impact in Motion</h3>
               <div className="relative rounded-xl overflow-hidden border border-cream-900/60 shadow-md bg-charcoal-900 w-full flex items-center justify-center group aspect-video">
                 <video 
@@ -265,8 +265,8 @@ export default function Home() {
                   </div>
                 )}
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </motion.div>
       </section>
 
