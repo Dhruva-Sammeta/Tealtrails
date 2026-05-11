@@ -54,7 +54,11 @@ export default function Home() {
     }
   ];
 
-
+  const timeline = [
+    { year: "2024", title: "Inception", desc: "Teal Trails began to close the gap in cervical cancer awareness among young people." },
+    { year: "2025", title: "First Campaign", desc: "Launched our first school campaign focused on cervical cancer, HPV, and early screening awareness." },
+    { year: "2026", title: "Building Forward", desc: "Expanding the work with more schools, clearer prevention messages, and stronger community reach." }
+  ];
 
   return (
     <main className="min-h-screen flex flex-col overflow-hidden bg-cream-100">
@@ -74,7 +78,7 @@ export default function Home() {
           </motion.h1>
           
           <motion.p variants={fadeUp} className="text-base sm:text-lg md:text-xl text-charcoal-800 max-w-3xl mx-auto leading-relaxed font-medium mt-6 sm:mt-8 drop-shadow-[0_4px_12px_rgba(255,255,255,0.55)]">
-            Teal Trails is a student-led initiative born from real conversations — with girls in orphanages, women in rural mandals, and college students in Hyderabad who had never once heard the word "cervix." India loses over 77,000 women to cervical cancer every year — not because medicine failed them, but because silence did. We break that silence in classrooms, communities, and at doorsteps.
+            Teal Trails is a student-led initiative born from real conversations - with girls in orphanages, women in rural mandals, and college students in Hyderabad who had never once heard the word "cervix." India loses over 77,000 women to cervical cancer every year - not because medicine failed them, but because silence did. We break that silence in classrooms, communities, and at doorsteps.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-6 sm:pt-8 w-full sm:w-auto">
@@ -108,7 +112,7 @@ export default function Home() {
               className="rounded-2xl border border-cream-900 bg-cream-100 p-8 md:p-10 shadow-md hover:shadow-xl transition-all duration-300 cut-paper"
             >
               <h3 className="text-sm uppercase tracking-[0.3em] text-teal-700 font-bold mb-4">How We Grow</h3>
-              <p className="text-charcoal-800 leading-relaxed text-lg">We run awareness sessions in schools, colleges, and clinics — reaching 100+ adolescents before HPV exposure peaks and before the healthcare system loses them to avoidance. Our sessions cover HPV transmission, the cervical cancer link, vaccine safety, and what a Pap smear involves. We partner with local NGOs and Asha workers to make the impact last beyond a single visit.</p>
+              <p className="text-charcoal-800 leading-relaxed text-lg">We run awareness sessions in schools, colleges, and clinics - reaching 100+ adolescents before HPV exposure peaks and before the healthcare system loses them to avoidance. Our sessions cover HPV transmission, the cervical cancer link, vaccine safety, and what a Pap smear involves. We partner with local NGOs and Asha workers to make the impact last beyond a single visit.</p>
             </motion.div>
           </div>
 
@@ -123,7 +127,7 @@ export default function Home() {
             <div className="relative z-10">
               <h3 className="text-sm uppercase tracking-[0.3em] text-teal-300 font-bold mb-4">What We Protect</h3>
               <p className="text-teal-50 leading-relaxed text-xl md:text-2xl font-serif max-w-4xl">
-                Teal Trails is pioneering mobile clinics in youth-led public health — bringing certified medical professionals and care directly to doorsteps. Funded through CSR partnerships and run primarily in villages, each mobile unit provides not only cervical cancer awareness, but also anaemia care, antenatal care (ANC) for pregnant women, diabetes care, hypertension treatment, premature menopause treatment and other patient-specific consultations for whatever concerns come at our door. We eliminate the need for waiting rooms and just provide comprehensive care where the system hasn't reached yet.
+                Teal Trails is pioneering mobile clinics in youth-led public health - bringing certified medical professionals and care directly to doorsteps. Funded through CSR partnerships and run primarily in villages, each mobile unit provides not only cervical cancer awareness, but also anaemia care, antenatal care (ANC) for pregnant women, diabetes care, hypertension treatment, premature menopause treatment and other patient-specific consultations for whatever concerns come at our door. We eliminate the need for waiting rooms and just provide comprehensive care where the system hasn't reached yet.
               </p>
             </div>
           </motion.div>
@@ -145,7 +149,7 @@ export default function Home() {
               Overcoming traditional barriers to care.
             </h2>
             <p className="text-charcoal-800 text-lg leading-relaxed">
-              Teal Trails doesn't target one kind of woman– it reaches all of them. From high school girls and postgraduate researchers to women farm labourers working in fields and mothers in villages who've never seen a doctor. Teal Trails understands that a degree is not a guarantee of awareness — we've sat in rooms full of educated women who had never once heard of HPV. Cervical cancer doesn't discriminate by education or income, and neither does our work.
+              Teal Trails doesn't target one kind of woman- it reaches all of them. From high school girls and postgraduate researchers to women farm labourers working in fields and mothers in villages who've never seen a doctor. Teal Trails understands that a degree is not a guarantee of awareness - we've sat in rooms full of educated women who had never once heard of HPV. Cervical cancer doesn't discriminate by education or income, and neither does our work.
             </p>
             <p className="text-charcoal-800 text-lg leading-relaxed">
               Every session is shaped around who's in the room. Their language, their concerns, their reality. A postgraduate seminar looks different from a session under a tent in a village. What doesn't change is the core message: this cancer is preventable, this information is yours, and you deserve access to both.
@@ -186,14 +190,14 @@ export default function Home() {
               <span className="uppercase tracking-widest text-sm font-bold text-charcoal-800">Camp Pragati</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-serif text-charcoal-900 leading-tight">
-              Camp Pragati — Progress, taken to the doorstep.
+              Camp Pragati - Progress, taken to the doorstep.
             </h2>
             <div className="space-y-6 text-charcoal-800 text-lg leading-relaxed">
               <p>
-                Pragati means progress in Hindi — and that's exactly what this camp was built to deliver. In Early 2025, Teal Trails drove a CSR-funded mobile health unit into Thunki Kalsa, a village in rural Hyderabad, where chronic illnesses go undiagnosed, reproductive health remains unspoken, and reliable medical care is far out of reach for most families.
+                Pragati means progress in Hindi - and that's exactly what this camp was built to deliver. In Early 2025, Teal Trails drove a CSR-funded mobile health unit into Thunki Kalsa, a village in rural Hyderabad, where chronic illnesses go undiagnosed, reproductive health remains unspoken, and reliable medical care is far out of reach for most families.
               </p>
               <p>
-                Our team addressed hypertension, diabetes, anaemia, premature menopause, and antenatal care alongside cervical cancer awareness — every woman who received a consultation also walked away with cervical cancer awareness materials and Teal Trails pamphlets. High school students — girls and boys — attended a doctor-led seminar on general health practices and preventive measures, many hearing about cervical cancer for the very first time.
+                Our team addressed hypertension, diabetes, anaemia, premature menopause, and antenatal care alongside cervical cancer awareness - every woman who received a consultation also walked away with cervical cancer awareness materials and Teal Trails pamphlets. High school students - girls and boys - attended a doctor-led seminar on general health practices and preventive measures, many hearing about cervical cancer for the very first time.
               </p>
               <p>
                 Pragati was a reminder that progress isn't always built in hospitals and policy rooms. It's built in the spaces the system forgot to reach, and the willingness to learn and grow.
@@ -211,11 +215,11 @@ export default function Home() {
                 </motion.li>
                 <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
-                  <span><strong>82% women</strong> — each receiving cervical cancer awareness materials and Teal Trails pamphlets alongside their medical consultation</span>
+                  <span><strong>82% women</strong> - each receiving cervical cancer awareness materials and Teal Trails pamphlets alongside their medical consultation</span>
                 </motion.li>
                 <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
-                  <span><strong>50 high school students</strong> — girls and boys — attended a doctor-led medical seminar covering general health practices, cervical cancer awareness, and crucial preventive measures</span>
+                  <span><strong>50 high school students</strong> - girls and boys - attended a doctor-led medical seminar covering general health practices, cervical cancer awareness, and crucial preventive measures</span>
                 </motion.li>
                 <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
@@ -223,11 +227,11 @@ export default function Home() {
                 </motion.li>
                 <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
-                  <span><strong>77% returning patients</strong> — indicating trust built from Teal Trails presence</span>
+                  <span><strong>77% returning patients</strong> - indicating trust built from Teal Trails presence</span>
                 </motion.li>
                 <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
-                  <span><strong>Hypertension, diabetes, anemia, and premature menopause</strong> emerged as the dominant conditions — chronic illnesses that go largely undiagnosed in rural women</span>
+                  <span><strong>Hypertension, diabetes, anemia, and premature menopause</strong> emerged as the dominant conditions - chronic illnesses that go largely undiagnosed in rural women</span>
                 </motion.li>
                 <motion.li variants={fadeUp} className="flex items-start gap-3">
                   <div className="mt-2 h-2 w-2 rounded-full bg-rose-500 shrink-0"></div>
@@ -270,14 +274,43 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* 5. PRESS SECTION */}
-      <section className="w-full py-28 sm:py-36 px-4 sm:px-6 lg:px-8 bg-cream-100 relative border-t border-cream-900">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="max-w-4xl mx-auto text-center">
-          <motion.span variants={fadeUp} className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">Media</motion.span>
-          <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif text-charcoal-900 mb-6">Press & Media</motion.h2>
-          <motion.p variants={fadeUp} className="text-charcoal-800 text-lg leading-relaxed">
-            Updates coming soon.
-          </motion.p>
+      {/* 5. TIMELINE SECTION */}
+      <section className="w-full py-28 sm:py-36 px-4 sm:px-6 lg:px-8 bg-cream-100 relative">
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer} className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.span variants={fadeUp} className="text-rose-500 font-bold tracking-widest uppercase text-sm block mb-3">Our Journey</motion.span>
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-serif text-charcoal-900">How Far We've Come</motion.h2>
+          </div>
+
+          <div className="space-y-12">
+            {timeline.map((item, i) => (
+              <motion.div variants={fadeUp} key={i} className={`flex flex-col md:flex-row gap-8 items-center ${i % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <div className="bg-teal-800 text-teal-100 px-6 py-3 rounded-full font-bold text-xl shadow-lg border border-teal-600 font-serif w-max">
+                    {item.year}
+                  </div>
+                </div>
+                <div className="w-full md:w-1/2">
+                  <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-cream-900 relative cut-paper">
+                    <div className="absolute w-4 h-4 bg-rose-500 rounded-full -left-2 top-1/2 -translate-y-1/2 hidden md:block"></div>
+                    <h3 className="text-2xl font-serif text-teal-800 mb-3">{item.title}</h3>
+                    <p className="text-charcoal-800 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* PRESS & MEDIA STAND-IN */}
+          <motion.div variants={fadeUp} className="mt-20 max-w-2xl mx-auto bg-white/50 border border-teal-600/20 rounded-3xl p-8 text-center shadow-[0_8px_30px_rgba(10,143,150,0.06)] relative overflow-hidden backdrop-blur-sm cut-paper">
+             <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-teal-400 via-teal-600 to-rose-500"></div>
+             <div className="inline-block px-4 py-1.5 rounded-full bg-teal-100 text-teal-800 font-bold text-xs uppercase tracking-widest mb-4 shadow-sm">Press & Media</div>
+             <h3 className="text-2xl font-serif text-charcoal-900 mb-3">Expanding Our Impact</h3>
+             <p className="text-charcoal-800 leading-relaxed max-w-lg mx-auto">
+               We're currently compiling our latest press releases and media features. Check back soon for updates as Teal Trails continues to grow.
+             </p>
+          </motion.div>
+
         </motion.div>
       </section>
 
