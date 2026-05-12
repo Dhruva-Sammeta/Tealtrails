@@ -74,8 +74,8 @@ export default function Home() {
           </motion.div>
           
           <motion.div variants={fadeUp} className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 w-full max-w-5xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-charcoal-900 leading-[1.1] tracking-tight max-w-3xl drop-shadow-[0_6px_22px_rgba(255,255,255,0.65)] lg:text-left">
-              Most Indian women learn about cervical cancer after a diagnosis. <span className="text-rose-500 italic">We change that.</span>
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-serif leading-[1.1] tracking-tight max-w-3xl drop-shadow-[0_6px_22px_rgba(255,255,255,0.65)] lg:text-left">
+              <span className="text-teal-600 italic">Teal</span> <span className="text-rose-500 italic">Trails</span>
             </h1>
             
             <div className="relative w-36 h-36 sm:w-44 sm:h-44 shrink-0 bg-white/70 backdrop-blur-xl border border-white/80 rounded-[2rem] shadow-[0_20px_40px_rgba(31,41,55,0.12)] p-2 hover:scale-105 transition-transform duration-500">
